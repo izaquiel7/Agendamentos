@@ -56,7 +56,7 @@ Contributor(s):
     <property name="show_sql">true</property>
     
     <!-- Cria tabelas do banco de dados -->
-    <property name="hbm2ddl.auto">update</property>
+    <property name="hbm2ddl.auto">create</property>
     <property name="format_sql">false</property>
     
     <!-- Mapeamento das classe -->

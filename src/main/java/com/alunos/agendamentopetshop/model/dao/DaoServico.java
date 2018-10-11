@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-package com.alunos.agendamentopetshop.repositorio.implementacao;
+package com.alunos.agendamentopetshop.model.dao;
 
-import com.alunos.agendamentopetshop.dao.PersistenciaDAO;
-import com.alunos.agendamentopetshop.interfaces.InterfaceServico;
+import com.alunos.agendamentopetshop.model.repositorio.Persistencia;
+import com.alunos.agendamentopetshop.model.interfaces.InterfaceServico;
 import com.alunos.agendamentopetshop.model.entidades.Servico;
 import java.util.List;
 
@@ -15,21 +15,21 @@ import java.util.List;
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
-public class RepositorioServicoImplDB implements InterfaceServico<Servico> {
+public class DaoServico implements InterfaceServico<Servico> {
 
     @Override
     public void salvar(Servico servico) {
-        PersistenciaDAO.getInstance().salvar(servico);
+        Persistencia.getInstance().salvar(servico);
     }
 
     @Override
     public void editar(Servico servico) {
-        PersistenciaDAO.getInstance().editar(servico);
+        Persistencia.getInstance().editar(servico);
     }
 
     @Override
     public Servico buscar(Integer codigo) {
-        List lista = PersistenciaDAO.getInstance().listar("SELECT s FROM Servico s WHERE s.id=" + codigo);
+        List lista = Persistencia.getInstance().listar("SELECT s FROM Servico s WHERE s.id=" + codigo);
         if (!lista.isEmpty()) {
             return (Servico) lista.get(0);
         }
@@ -38,12 +38,12 @@ public class RepositorioServicoImplDB implements InterfaceServico<Servico> {
 
     @Override
     public void deletar(Servico servico) {
-        PersistenciaDAO.getInstance().deletar(servico);
+        Persistencia.getInstance().deletar(servico);
     }
 
     @Override
     public List<Servico> listar() {
-        return PersistenciaDAO.getInstance().listar("SELECT s FROM Servico s");
+        return Persistencia.getInstance().listar("SELECT s FROM Servico s");
     }
 
 }

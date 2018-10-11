@@ -7,7 +7,7 @@
 package com.alunos.agendamentopetshop.controller;
 
 import com.alunos.agendamentopetshop.model.entidades.Servico;
-import com.alunos.agendamentopetshop.model.negocio.NegocioServico;
+import com.alunos.agendamentopetshop.model.negocio.ServicoModel;
 import com.alunos.agendamentopetshop.util.Mensagens;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
@@ -21,13 +21,13 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class ControllerServico {
     
-    private NegocioServico negServico;
+    private ServicoModel negServico;
     private Servico servico;
     private ArrayList<Servico> listaServico;
     
     public ControllerServico(){
         
-        negServico = new NegocioServico();
+        negServico = new ServicoModel();
         servico = new Servico();
         listaServico = new ArrayList<>();
     }
@@ -67,11 +67,11 @@ public class ControllerServico {
         negServico.buscar(servico.getIdServico());
     }
 
-    public NegocioServico getNegServico() {
+    public ServicoModel getNegServico() {
         return negServico;
     }
 
-    public void setNegServico(NegocioServico negServico) {
+    public void setNegServico(ServicoModel negServico) {
         this.negServico = negServico;
     }
 

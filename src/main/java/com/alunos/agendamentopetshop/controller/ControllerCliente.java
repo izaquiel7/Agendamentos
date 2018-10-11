@@ -7,7 +7,7 @@
 package com.alunos.agendamentopetshop.controller;
 
 import com.alunos.agendamentopetshop.model.entidades.Cliente;
-import com.alunos.agendamentopetshop.model.negocio.NegocioCliente;
+import com.alunos.agendamentopetshop.model.negocio.ClienteModel;
 import com.alunos.agendamentopetshop.util.Mensagens;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,12 +22,12 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class ControllerCliente implements Serializable {
 
-    private NegocioCliente negocioCliente;
+    private ClienteModel negocioCliente;
     private Cliente cliente;
     private ArrayList<Cliente> clientes;
 
     public ControllerCliente() {
-        negocioCliente = new NegocioCliente();
+        negocioCliente = new ClienteModel();
         cliente = new Cliente();
         clientes = new ArrayList<>();
     }
@@ -74,11 +74,11 @@ public class ControllerCliente implements Serializable {
         return negocioCliente.buscarCpf(cliente.getCpf());
     }
 
-    public NegocioCliente getNegocioCliente() {
+    public ClienteModel getNegocioCliente() {
         return negocioCliente;
     }
 
-    public void setNegocioCliente(NegocioCliente negocioCliente) {
+    public void setNegocioCliente(ClienteModel negocioCliente) {
         this.negocioCliente = negocioCliente;
     }
 

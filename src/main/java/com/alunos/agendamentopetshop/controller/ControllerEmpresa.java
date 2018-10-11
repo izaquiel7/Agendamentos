@@ -7,7 +7,7 @@
 package com.alunos.agendamentopetshop.controller;
 
 import com.alunos.agendamentopetshop.model.entidades.Empresa;
-import com.alunos.agendamentopetshop.model.negocio.NegocioEmpresa;
+import com.alunos.agendamentopetshop.model.negocio.EmpresaModel;
 import com.alunos.agendamentopetshop.util.Mensagens;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,13 +22,13 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class ControllerEmpresa implements Serializable {
 
-    private NegocioEmpresa negEmpresa;
+    private EmpresaModel negEmpresa;
     private Empresa empresa;
     private ArrayList<Empresa> listaEmpresa;
     private String ret = "";
 
     public ControllerEmpresa() {
-        negEmpresa = new NegocioEmpresa();
+        negEmpresa = new EmpresaModel();
         empresa = new Empresa();
         listaEmpresa = new ArrayList<>();
     }
@@ -80,11 +80,11 @@ public class ControllerEmpresa implements Serializable {
         negEmpresa.buscarCnpj(empresa.getCnpj());
     }
 
-    public NegocioEmpresa getNegEmpresa() {
+    public EmpresaModel getNegEmpresa() {
         return negEmpresa;
     }
 
-    public void setNegEmpresa(NegocioEmpresa negEmpresa) {
+    public void setNegEmpresa(EmpresaModel negEmpresa) {
         this.negEmpresa = negEmpresa;
     }
 

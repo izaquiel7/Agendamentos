@@ -8,7 +8,7 @@ package com.alunos.agendamentopetshop.controller;
 
 import com.alunos.agendamentopetshop.model.entidades.Agendamento;
 import com.alunos.agendamentopetshop.model.entidades.StatusAgen;
-import com.alunos.agendamentopetshop.model.negocio.NegocioAgendamento;
+import com.alunos.agendamentopetshop.model.negocio.AgendamentoModel;
 import com.alunos.agendamentopetshop.util.JavaMail;
 import com.alunos.agendamentopetshop.util.Mensagens;
 import java.io.Serializable;
@@ -24,13 +24,13 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class ControllerAgendamento implements Serializable {
 
-    private NegocioAgendamento negocioAgendamento;
+    private AgendamentoModel negocioAgendamento;
     private Agendamento agendamento;
     private ArrayList<Agendamento> agendamentos;
     private String ret = "";
 
     public ControllerAgendamento() {
-        negocioAgendamento = new NegocioAgendamento();
+        negocioAgendamento = new AgendamentoModel();
         agendamento = new Agendamento();
         agendamentos = new ArrayList<>();
     }
@@ -95,11 +95,11 @@ public class ControllerAgendamento implements Serializable {
     }
         return "pagina com todos os agendamentos";
     }
-    public NegocioAgendamento getNegocioAgendamento() {
+    public AgendamentoModel getNegocioAgendamento() {
         return negocioAgendamento;
     }
 
-    public void setNegocioAgendamento(NegocioAgendamento negocioAgendamento) {
+    public void setNegocioAgendamento(AgendamentoModel negocioAgendamento) {
         this.negocioAgendamento = negocioAgendamento;
     }
 

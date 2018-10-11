@@ -6,9 +6,9 @@
 
 package com.alunos.agendamentopetshop.model.negocio;
 
-import com.alunos.agendamentopetshop.interfaces.InterfaceEmpresa;
+import com.alunos.agendamentopetshop.model.interfaces.InterfaceEmpresa;
 import com.alunos.agendamentopetshop.model.entidades.Empresa;
-import com.alunos.agendamentopetshop.repositorio.implementacao.RepositorioEmpresaImplDB;
+import com.alunos.agendamentopetshop.model.dao.DaoEmpresa;
 import com.alunos.agendamentopetshop.util.Criptografia;
 import com.alunos.agendamentopetshop.util.ValidaCNPJ;
 import java.util.List;
@@ -17,14 +17,14 @@ import java.util.List;
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
-public class NegocioEmpresa implements InterfaceEmpresa<Empresa> {
+public class EmpresaModel implements InterfaceEmpresa<Empresa> {
 
-    private RepositorioEmpresaImplDB repositorioEmpresa;
+    private DaoEmpresa repositorioEmpresa;
 
     private Empresa empresa;
 
-    public NegocioEmpresa() {
-        repositorioEmpresa = new RepositorioEmpresaImplDB();
+    public EmpresaModel() {
+        repositorioEmpresa = new DaoEmpresa();
     }
 
     @Override

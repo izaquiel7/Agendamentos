@@ -6,9 +6,9 @@
 
 package com.alunos.agendamentopetshop.model.negocio;
 
-import com.alunos.agendamentopetshop.interfaces.InterfaceCliente;
+import com.alunos.agendamentopetshop.model.interfaces.InterfaceCliente;
 import com.alunos.agendamentopetshop.model.entidades.Cliente;
-import com.alunos.agendamentopetshop.repositorio.implementacao.RepositorioClienteImplDB;
+import com.alunos.agendamentopetshop.model.dao.DaoCliente;
 import com.alunos.agendamentopetshop.util.Criptografia;
 import com.alunos.agendamentopetshop.util.ValidaCPF;
 import java.util.List;
@@ -17,13 +17,13 @@ import java.util.List;
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
-public class NegocioCliente implements InterfaceCliente<Cliente> {
+public class ClienteModel implements InterfaceCliente<Cliente> {
 
-    private RepositorioClienteImplDB repositorioCliente;
+    private DaoCliente repositorioCliente;
     private Cliente cliente;
 
-    public NegocioCliente() {
-        repositorioCliente = new RepositorioClienteImplDB();
+    public ClienteModel() {
+        repositorioCliente = new DaoCliente();
     }
 
     @Override
@@ -31,7 +31,7 @@ public class NegocioCliente implements InterfaceCliente<Cliente> {
         if (login == null || senha == null) {
             return null;
         }
-        return ((RepositorioClienteImplDB) repositorioCliente).autenticar(login, senha);
+        return ((DaoCliente) repositorioCliente).autenticar(login, senha);
     }
 
     @Override

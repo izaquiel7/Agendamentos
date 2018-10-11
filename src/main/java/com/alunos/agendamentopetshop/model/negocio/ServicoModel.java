@@ -6,22 +6,22 @@
 
 package com.alunos.agendamentopetshop.model.negocio;
 
-import com.alunos.agendamentopetshop.interfaces.InterfaceServico;
+import com.alunos.agendamentopetshop.model.interfaces.InterfaceServico;
 import com.alunos.agendamentopetshop.model.entidades.Servico;
-import com.alunos.agendamentopetshop.repositorio.implementacao.RepositorioServicoImplDB;
+import com.alunos.agendamentopetshop.model.dao.DaoServico;
 import java.util.List;
 
 /**
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
-public class NegocioServico implements InterfaceServico<Servico>{
+public class ServicoModel implements InterfaceServico<Servico>{
     
-    private RepositorioServicoImplDB repositorioServico;
+    private DaoServico repositorioServico;
     private Servico servico;
     
-    public NegocioServico(){
-        repositorioServico = new RepositorioServicoImplDB();
+    public ServicoModel(){
+        repositorioServico = new DaoServico();
     }
     
     @Override

@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-package com.alunos.agendamentopetshop.repositorio.implementacao;
+package com.alunos.agendamentopetshop.model.dao;
 
-import com.alunos.agendamentopetshop.dao.PersistenciaDAO;
-import com.alunos.agendamentopetshop.interfaces.InterfaceCliente;
+import com.alunos.agendamentopetshop.model.repositorio.Persistencia;
+import com.alunos.agendamentopetshop.model.interfaces.InterfaceCliente;
 import com.alunos.agendamentopetshop.model.entidades.Cliente;
 import java.util.List;
 
@@ -15,21 +15,21 @@ import java.util.List;
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
-public class RepositorioClienteImplDB implements InterfaceCliente<Cliente> {
+public class DaoCliente implements InterfaceCliente<Cliente> {
     
     @Override
     public void salvar(Cliente cliente) {
-        PersistenciaDAO.getInstance().salvar(cliente);
+        Persistencia.getInstance().salvar(cliente);
     }
 
     @Override
     public void editar(Cliente cliente) {
-        PersistenciaDAO.getInstance().editar(cliente);
+        Persistencia.getInstance().editar(cliente);
     }
 
     @Override
     public Cliente buscar(Integer codigo) {
-        List lista = PersistenciaDAO.getInstance().listar("SELECT c FROM Cliente c WHERE c.id=" + codigo);
+        List lista = Persistencia.getInstance().listar("SELECT c FROM Cliente c WHERE c.id=" + codigo);
         if(!lista.isEmpty()){
             return (Cliente) lista.get(0);
         }
@@ -39,22 +39,22 @@ public class RepositorioClienteImplDB implements InterfaceCliente<Cliente> {
 
     @Override
     public void deletar(Cliente cliente) {
-        PersistenciaDAO.getInstance().deletar(cliente);
+        Persistencia.getInstance().deletar(cliente);
     }
 
     @Override
     public List<Cliente> listar() {
-        return PersistenciaDAO.getInstance().listar("SELECT c FROM Cliente c");
+        return Persistencia.getInstance().listar("SELECT c FROM Cliente c");
     }
     
     @Override
     public Cliente autenticar(String email, String senha) {
-        return (Cliente) PersistenciaDAO.getInstance().autenticar("SELECT a FROM Cliente a", email, senha);
+        return (Cliente) Persistencia.getInstance().autenticar("SELECT a FROM Cliente a", email, senha);
     }
     
     @Override
     public Cliente buscarCpf(String cpf){
-        List lista =  PersistenciaDAO.getInstance().listar("SELECT c FROM Cliente c WHERE c.cpf=" + cpf);
+        List lista =  Persistencia.getInstance().listar("SELECT c FROM Cliente c WHERE c.cpf=" + cpf);
         if(!lista.isEmpty()){
             return (Cliente) lista.get(0);
         }

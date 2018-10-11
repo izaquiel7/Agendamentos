@@ -8,8 +8,8 @@ package com.alunos.agendamentopetshop.controller;
 
 import com.alunos.agendamentopetshop.model.entidades.Cliente;
 import com.alunos.agendamentopetshop.model.entidades.Empresa;
-import com.alunos.agendamentopetshop.model.negocio.NegocioCliente;
-import com.alunos.agendamentopetshop.model.negocio.NegocioEmpresa;
+import com.alunos.agendamentopetshop.model.negocio.ClienteModel;
+import com.alunos.agendamentopetshop.model.negocio.EmpresaModel;
 import com.alunos.agendamentopetshop.util.Criptografia;
 import java.io.Serializable;
 import javax.faces.application.FacesMessage;
@@ -42,7 +42,7 @@ public AutenticarBean(){
             System.out.println("valor nulo para senha.");
         }
         senha = Criptografia.criptografar(senha);
-        NegocioCliente neg = new NegocioCliente();
+        ClienteModel neg = new ClienteModel();
         clienteLogin = neg.autenticar(email, senha);
         
         if(clienteLogin != null) {
@@ -50,7 +50,7 @@ public AutenticarBean(){
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("clienteLogado", this.clienteLogin);
             return "Cliente/visualizarServicos.xhtml?faces-redirect=true";
         } else {
-            NegocioEmpresa negEmp = new NegocioEmpresa();
+            EmpresaModel negEmp = new EmpresaModel();
             empresaLogin = negEmp.autenticar(email, senha);
             
             if(empresaLogin != null) {

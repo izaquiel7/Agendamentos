@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-package com.alunos.agendamentopetshop.repositorio.implementacao;
+package com.alunos.agendamentopetshop.model.dao;
 
-import com.alunos.agendamentopetshop.dao.PersistenciaDAO;
-import com.alunos.agendamentopetshop.interfaces.InterfaceAgendamento;
+import com.alunos.agendamentopetshop.model.repositorio.Persistencia;
+import com.alunos.agendamentopetshop.model.interfaces.InterfaceAgendamento;
 import com.alunos.agendamentopetshop.model.entidades.Agendamento;
 import java.util.List;
 
@@ -15,21 +15,21 @@ import java.util.List;
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
-public class RepositorioAgendamentoImplDB implements InterfaceAgendamento<Agendamento>{
+public class DaoAgendamento implements InterfaceAgendamento<Agendamento>{
  
     @Override
     public void salvar(Agendamento agendamento) {
-        PersistenciaDAO.getInstance().salvar(agendamento);
+        Persistencia.getInstance().salvar(agendamento);
     }
 
     @Override
     public void editar(Agendamento agendamento) {
-        PersistenciaDAO.getInstance().editar(agendamento);
+        Persistencia.getInstance().editar(agendamento);
     }
 
     @Override
     public Agendamento buscar(Integer codigo) {
-        List lista = PersistenciaDAO.getInstance().listar("SELECT ag FROM Agendamento ag WHERE ag.id=" + codigo);
+        List lista = Persistencia.getInstance().listar("SELECT ag FROM Agendamento ag WHERE ag.id=" + codigo);
         if(!lista.isEmpty()){
             return (Agendamento) lista.get(0);
         }
@@ -38,11 +38,11 @@ public class RepositorioAgendamentoImplDB implements InterfaceAgendamento<Agenda
 
     @Override
     public void deletar(Agendamento agendamento) {
-        PersistenciaDAO.getInstance().deletar(agendamento);
+        Persistencia.getInstance().deletar(agendamento);
     }
 
     @Override
     public List<Agendamento> listar() {
-        return PersistenciaDAO.getInstance().listar("SELECT ag FROM Agendamento ag");
+        return Persistencia.getInstance().listar("SELECT ag FROM Agendamento ag");
     }
 }

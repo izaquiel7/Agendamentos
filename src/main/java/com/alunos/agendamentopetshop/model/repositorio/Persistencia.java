@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.alunos.agendamentopetshop.dao;
+package com.alunos.agendamentopetshop.model.repositorio;
 
 import com.alunos.agendamentopetshop.util.HibernateUtil;
 import java.util.List;
@@ -17,18 +17,18 @@ import org.hibernate.Transaction;
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
-public class PersistenciaDAO {
+public class Persistencia {
     private final SessionFactory sessionFactory;
-    private static PersistenciaDAO instance = null;
+    private static Persistencia instance = null;
     
-    public static PersistenciaDAO getInstance() {
+    public static Persistencia getInstance() {
         if(instance == null) {
-            instance = new PersistenciaDAO();
+            instance = new Persistencia();
         }
         return instance;
     }
     
-    private PersistenciaDAO() {
+    private Persistencia() {
         this.sessionFactory = HibernateUtil.getSessionFactory();
     }
        

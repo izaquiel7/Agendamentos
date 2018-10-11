@@ -6,22 +6,22 @@
 
 package com.alunos.agendamentopetshop.model.negocio;
 
-import com.alunos.agendamentopetshop.interfaces.InterfaceAgendamento;
+import com.alunos.agendamentopetshop.model.interfaces.InterfaceAgendamento;
 import com.alunos.agendamentopetshop.model.entidades.Agendamento;
-import com.alunos.agendamentopetshop.repositorio.implementacao.RepositorioAgendamentoImplDB;
+import com.alunos.agendamentopetshop.model.dao.DaoAgendamento;
 import java.util.List;
 
 /**
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
-public class NegocioAgendamento implements InterfaceAgendamento<Agendamento> {
+public class AgendamentoModel implements InterfaceAgendamento<Agendamento> {
 
-    private RepositorioAgendamentoImplDB repositorioAgendamento;
+    private DaoAgendamento repositorioAgendamento;
     private Agendamento agendamento;
 
-    public NegocioAgendamento() {
-        repositorioAgendamento = new RepositorioAgendamentoImplDB();
+    public AgendamentoModel() {
+        repositorioAgendamento = new DaoAgendamento();
     }
 
     @Override
