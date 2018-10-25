@@ -8,8 +8,9 @@ package com.alunos.agendamentopetshop.model.negocio;
 
 import com.alunos.agendamentopetshop.model.interfaces.InterfaceCliente;
 import com.alunos.agendamentopetshop.model.entidades.Cliente;
-import com.alunos.agendamentopetshop.model.dao.DaoCliente;
+import com.alunos.agendamentopetshop.model.dao.ClienteDao;
 import com.alunos.agendamentopetshop.util.Criptografia;
+import com.alunos.agendamentopetshop.util.TratamentoException;
 import com.alunos.agendamentopetshop.util.ValidaCPF;
 import java.util.List;
 
@@ -19,11 +20,11 @@ import java.util.List;
  */
 public class ClienteModel implements InterfaceCliente<Cliente> {
 
-    private DaoCliente repositorioCliente;
+    private ClienteDao repositorioCliente;
     private Cliente cliente;
 
     public ClienteModel() {
-        repositorioCliente = new DaoCliente();
+        repositorioCliente = new ClienteDao();
     }
 
     @Override
@@ -31,7 +32,7 @@ public class ClienteModel implements InterfaceCliente<Cliente> {
         if (login == null || senha == null) {
             return null;
         }
-        return ((DaoCliente) repositorioCliente).autenticar(login, senha);
+        return ((ClienteDao) repositorioCliente).autenticar(login, senha);
     }
 
     @Override
@@ -53,8 +54,10 @@ public class ClienteModel implements InterfaceCliente<Cliente> {
 
         boolean status = ValidaCPF.isCPF(cliente.getCpf());
         if (status == true) {
-            if (cliente == null || buscarCpf(cliente.getCpf()) != null) {
-                throw new Exception("Erro!");
+            if (cliente == null ) {
+                TratamentoException.trataSalvar();
+            }else if( buscarCpf(cliente.getCpf()) != null){
+                
             }
             cliente.setSenha(Criptografia.criptografar(cliente.getSenha()));
             repositorioCliente.salvar(cliente);

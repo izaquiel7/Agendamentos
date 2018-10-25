@@ -8,8 +8,9 @@ package com.alunos.agendamentopetshop.model.negocio;
 
 import com.alunos.agendamentopetshop.model.interfaces.InterfaceEmpresa;
 import com.alunos.agendamentopetshop.model.entidades.Empresa;
-import com.alunos.agendamentopetshop.model.dao.DaoEmpresa;
+import com.alunos.agendamentopetshop.model.dao.EmpresaDao;
 import com.alunos.agendamentopetshop.util.Criptografia;
+import com.alunos.agendamentopetshop.util.TratamentoException;
 import com.alunos.agendamentopetshop.util.ValidaCNPJ;
 import java.util.List;
 
@@ -19,12 +20,12 @@ import java.util.List;
  */
 public class EmpresaModel implements InterfaceEmpresa<Empresa> {
 
-    private DaoEmpresa repositorioEmpresa;
+    private EmpresaDao repositorioEmpresa;
 
     private Empresa empresa;
 
     public EmpresaModel() {
-        repositorioEmpresa = new DaoEmpresa();
+        repositorioEmpresa = new EmpresaDao();
     }
 
     @Override
@@ -64,7 +65,7 @@ public class EmpresaModel implements InterfaceEmpresa<Empresa> {
         boolean status = ValidaCNPJ.isCNPJ(e.getCnpj());
         if (status == true) {
             if (e == null || buscarCnpj(e.getCnpj()) != null) {
-                throw new Exception("Erro!");
+                TratamentoException.trataSalvar();
             }
             e.setSenha(Criptografia.criptografar(e.getSenha()));
             repositorioEmpresa.salvar(e);
@@ -91,7 +92,7 @@ public class EmpresaModel implements InterfaceEmpresa<Empresa> {
     public void editar(Empresa e) throws Exception {
 
         if (e == null || repositorioEmpresa.buscar(e.getIdEmpresa()) == null) {
-            throw new Exception("Erro!");
+            TratamentoException.trataEditar();
         } else {
             repositorioEmpresa.editar(e);
         }
@@ -100,7 +101,7 @@ public class EmpresaModel implements InterfaceEmpresa<Empresa> {
     @Override
     public void deletar(Empresa e) throws Exception {
         if (e == null || repositorioEmpresa.buscarCnpj(e.getCnpj()) == null) {
-            throw new Exception("Erro!");
+            TratamentoException.trataDeletar();
         } else {
             repositorioEmpresa.deletar(e);
         }

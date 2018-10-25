@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
-public class DaoCliente implements InterfaceCliente<Cliente> {
+public class ClienteDao implements InterfaceCliente<Cliente> {
     
     @Override
     public void salvar(Cliente cliente) {

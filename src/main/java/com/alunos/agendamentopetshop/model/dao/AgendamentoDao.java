@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
-public class DaoAgendamento implements InterfaceAgendamento<Agendamento>{
+public class AgendamentoDao implements InterfaceAgendamento<Agendamento>{
  
     @Override
     public void salvar(Agendamento agendamento) {

@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
-public class DaoEmpresa implements InterfaceEmpresa<Empresa> {
+public class EmpresaDao implements InterfaceEmpresa<Empresa> {
 
     @Override
     public void salvar(Empresa empresa) {

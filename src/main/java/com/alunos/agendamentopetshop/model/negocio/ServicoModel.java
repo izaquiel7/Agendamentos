@@ -8,7 +8,8 @@ package com.alunos.agendamentopetshop.model.negocio;
 
 import com.alunos.agendamentopetshop.model.interfaces.InterfaceServico;
 import com.alunos.agendamentopetshop.model.entidades.Servico;
-import com.alunos.agendamentopetshop.model.dao.DaoServico;
+import com.alunos.agendamentopetshop.model.dao.ServicoDao;
+import com.alunos.agendamentopetshop.util.TratamentoException;
 import java.util.List;
 
 /**
@@ -17,20 +18,20 @@ import java.util.List;
  */
 public class ServicoModel implements InterfaceServico<Servico>{
     
-    private DaoServico repositorioServico;
+    private ServicoDao repositorioServico;
     private Servico servico;
     
     public ServicoModel(){
-        repositorioServico = new DaoServico();
+        repositorioServico = new ServicoDao();
     }
     
     @Override
     public void salvar(Servico servico) throws Exception{
         if (servico == null) {
-            throw new Exception("Erro!");
+            TratamentoException.trataSalvar();
         }else{
             if(buscar(servico.getIdServico()) != null){
-                throw new Exception("Erro!");
+                System.err.print("Este serviço foi salvo anteriormente!");
             }else{
                 repositorioServico.salvar(servico);
             }
@@ -54,7 +55,7 @@ public class ServicoModel implements InterfaceServico<Servico>{
     @Override
     public void editar(Servico servico) throws Exception{
         if(servico == null){
-            throw new Exception("Erro!");
+            TratamentoException.trataEditar();
         }else{
                 repositorioServico.editar(servico);
            }
@@ -63,11 +64,12 @@ public class ServicoModel implements InterfaceServico<Servico>{
     @Override
     public void deletar(Servico servico) throws Exception{
         if(servico == null){
-            throw new Exception("Erro!");
+            TratamentoException.trataDeletar();
         }else{
             servico = repositorioServico.buscar(servico.getIdServico());
             if(servico == null){
-                throw new Exception("Erro!");
+                TratamentoException.trataDeletar(); //vai dar NullPointerException
+                //System.err.print("Este serviço já foi deletado!");
             }else{
                 repositorioServico.deletar(servico);
             }

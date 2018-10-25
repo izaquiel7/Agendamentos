@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
-public class DaoServico implements InterfaceServico<Servico> {
+public class ServicoDao implements InterfaceServico<Servico> {
 
     @Override
     public void salvar(Servico servico) {
