@@ -9,6 +9,7 @@ package com.alunos.agendamentopetshop.model.negocio;
 import com.alunos.agendamentopetshop.model.interfaces.InterfaceAgendamento;
 import com.alunos.agendamentopetshop.model.entidades.Agendamento;
 import com.alunos.agendamentopetshop.model.dao.AgendamentoDao;
+import com.alunos.agendamentopetshop.util.TratamentoException;
 import java.util.List;
 
 /**
@@ -28,7 +29,7 @@ public class AgendamentoModel implements InterfaceAgendamento<Agendamento> {
     public void salvar(Agendamento e) throws Exception {
 
         if (e == null) {
-            throw new Exception("ERRO!!!!!");
+            TratamentoException.trataSalvar();
         } else {
                  repositorioAgendamento.salvar(e);
             }
@@ -52,7 +53,7 @@ public class AgendamentoModel implements InterfaceAgendamento<Agendamento> {
     @Override
     public void editar(Agendamento e) throws Exception {
         if(e == null){
-            throw new Exception("Erro!");
+            TratamentoException.trataEditar();
         }else{
            
                 repositorioAgendamento.editar(e);
@@ -62,11 +63,11 @@ public class AgendamentoModel implements InterfaceAgendamento<Agendamento> {
     @Override
     public void deletar(Agendamento e) throws Exception {
                 if(e == null){
-            throw new Exception("Erro!");
+            TratamentoException.trataDeletar();
         }else{
             agendamento = repositorioAgendamento.buscar(e.getId());
             if(agendamento == null){
-                throw new Exception("Erro!");
+                TratamentoException.trataDeletar();
             }else{
                 repositorioAgendamento.deletar(e);
             }

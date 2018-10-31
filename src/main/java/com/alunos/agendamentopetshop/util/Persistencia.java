@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.alunos.agendamentopetshop.model.repositorio;
+package com.alunos.agendamentopetshop.util;
 
 import com.alunos.agendamentopetshop.util.HibernateUtil;
 import java.util.List;

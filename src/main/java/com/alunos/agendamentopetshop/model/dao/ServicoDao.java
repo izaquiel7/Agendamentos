@@ -6,7 +6,7 @@
 
 package com.alunos.agendamentopetshop.model.dao;
 
-import com.alunos.agendamentopetshop.model.repositorio.Persistencia;
+import com.alunos.agendamentopetshop.util.Persistencia;
 import com.alunos.agendamentopetshop.model.interfaces.InterfaceServico;
 import com.alunos.agendamentopetshop.model.entidades.Servico;
 import java.util.List;
