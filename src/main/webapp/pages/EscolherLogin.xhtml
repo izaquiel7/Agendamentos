@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/modelosistema2.xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet library="css" name="style.css" />
+
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Agendamento</title>
+</h:head>
+
+	<ui:define name="menu">
+		<ui:include src="/includes/menu.xhtml" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+	<h1 align="center">Qual tipo de login você deseja?</h1>
+	<div  id="divbotao"> 
+	 <p:button type="button" value="Cliente" class="css3button" outcome="cadastroCliente"></p:button> 
+	 
+	 
+	 <p:button type="button" value="Empresa" class="css3button" outcome="cadastroEmpresa"></p:button>
+	 </div>
+	</ui:define>
+	
+
+
+</ui:composition>

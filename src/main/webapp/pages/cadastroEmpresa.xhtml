@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/modelosistema2.xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<ui:define name="menu">
+		<ui:include src="/includes/menu.xhtml" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form>
+
+
+			<p:fieldset>
+				<div align="center">
+					<p:panelGrid columns="3">
+						<p:outputLabel styleClass="output_text" value="CNPJ:" />
+						<p:inputMask mask="999.999.999-99" id="cnpj" feedback="true"
+							required="true"
+							requiredMessage="Tá faltando preencher o campo CNPJ!"></p:inputMask>
+						<p:message for="cnpj" />
+
+
+						<p:outputLabel styleClass="output_text" value="Nome:" />
+						<p:inputText id="nome" feedback="true" required="true"
+							requiredMessage="Tá faltando preencher o campo nome!" />
+						<p:message for="nome" />
+
+						<p:outputLabel styleClass="output_text" value="Telefone:" />
+						<p:inputMask mask="(99) 99999-9999" id="telefone" feedback="true"
+							required="true"
+							requiredMessage="Tá faltando preencher o campo telefone!"></p:inputMask>
+						<p:message for="telefone" />
+
+						<p:outputLabel styleClass="output_text" value="Rua:" />
+						<p:inputText id="rua" feedback="true" required="true"
+							requiredMessage="Tá faltando preencher o campo Rua !" />
+						<p:message for="rua" />
+
+						<p:outputLabel styleClass="output_text" value="Número:" />
+						<p:inputText id="numero" feedback="true" required="true"
+							requiredMessage="Tá faltando preencher o campo numero!" />
+						<p:message for="numero" />
+
+						<p:outputLabel styleClass="output_text" value="Bairro:" />
+						<p:inputText id="bairro" feedback="true" required="true"
+							requiredMessage="Tá faltando preencher o campo Bairro:!" />
+						<p:message for="bairro" />
+
+						<p:outputLabel value="Cidade:" />
+						<p:selectOneMenu id="textCidade"
+							value="#{controllerEmpresa.empresa.endereco.cidade}"
+							requiredMessage="Tá faltando preencher o campo cidade!">
+							<f:selectItem itemLabel="Selecione um cidade" itemValue="" />
+							<f:selectItem itemLabel="Arcoverde" itemValue="Arcoverde" />
+							<f:selectItem itemLabel="Belo Jardim" itemValue="Belo Jardim" />
+							<f:selectItem itemLabel="Bezerros" itemValue="Bezerros" />
+							<f:selectItem itemLabel="Cabo de Santo Agustinho"
+								itemValue="Cabo de Santo Agustinho" />
+							<f:selectItem itemLabel="Caruaru" itemValue="Caruaru" />
+							<f:selectItem itemLabel="Garanhuns" itemValue="Garanhuns" />
+							<f:selectItem itemLabel="Gravata" itemValue="Gravata" />
+							<f:selectItem itemLabel="Jaboatao dos Guararapes"
+								itemValue="Jaboatao dos Guararapes" />
+							<f:selectItem itemLabel="Olinda" itemValue="Olinda" />
+							<f:selectItem itemLabel="Recife" itemValue="Recife" />
+							<f:selectItem itemLabel="Pesqueira" itemValue="Pesqueira" />
+							<f:selectItem itemLabel="Petrolina" itemValue="Petrolina" />
+							<f:selectItem itemLabel="Santa Cruz do Capibaribe"
+								itemValue="Santa Cruz do Capibaribe" />
+							<f:selectItem itemLabel="Serra Talhada" itemValue="Serra Talhada" />
+							<f:selectItem itemLabel="Vitoria de Santo Antao"
+								itemValue="Vitoria de Santo Antao" />
+						</p:selectOneMenu>
+						<p:message for="textCidade" />
+
+
+						<p:outputLabel styleClass="output_text" value="Estado:" />
+						<p:inputText id="estado" feedback="true" required="true"
+							requiredMessage="Tá faltando preencher o campo Estado:!" />
+						<p:message for="estado" />
+
+						<p:outputLabel styleClass="output_text" value="Email:" />
+						<p:inputText id="email" required="true"
+							requiredMessage="Tá faltando preencher o campo email!" />
+						<p:message for="email" />
+
+						<p:outputLabel styleClass="output_text" value="Senha:" />
+						<p:password id="senha" feedback="true" required="true"
+							requiredMessage="Tá faltando preencher o campo senha!" />
+						<p:message for="senha" />
+
+					</p:panelGrid>
+				</div>
+			</p:fieldset>
+			<p:toolbar>
+				<p:toolbarGroup align="center">
+					<p:commandButton value="Adicionar" update="@form" style="center"></p:commandButton>
+					<p:commandButton value="Voltar" action="Cadastro.xhtml"></p:commandButton>
+				</p:toolbarGroup>
+			</p:toolbar>
+		</h:form>
+	</ui:define>
+
+
+</ui:composition>

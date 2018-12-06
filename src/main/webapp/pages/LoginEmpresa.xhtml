@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/modelosistema2.xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+
+	<ui:define name="menu">
+		<ui:include src="/includes/menu.xhtml" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+	
+
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css"
+		href="../resources/css/cssLogin.css" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/solid.css" integrity="sha384-rdyFrfAIC05c5ph7BKz3l5NG5yEottvO/DQ0dCrwD8gzeQDjYBHNr1ucUpQuljos" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT" crossorigin="anonymous"/>
+
+</h:head>
+
+<h:body>
+
+<div class="login-box">
+		
+		
+		 <h1>Login</h1>
+		
+		<div class="textbox">
+				<i class="fas fa-user"></i>
+				<input type="text" placeholder="Usuario" value=""/>
+		</div>
+		
+		<div class="textbox">
+				<i class="fas fa-lock"></i>
+				<input type="password" placeholder="Senha" value=""/>
+		</div>
+		
+		<input class="btn" type="button" name="" value="Entrar"/>
+		
+		<input class="btn" type="button" name="" value="Cadastrar"/>
+		
+
+	</div>
+	
+	<img src="../image/imagemDaTelaLogin.jpg" width="100%" height="100%"/>
+
+</h:body>
+</html>
+	</ui:define>
+
+
+
+</ui:composition>

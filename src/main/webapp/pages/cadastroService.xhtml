@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/modelosistema2.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<h:outputStylesheet library="css" name="style.css" />
+
+		<meta http-equiv="Content-Type"
+			content="text/html; charset=ISO-8859-1" />
+		<title>Agendamento</title>
+	</h:head>
+
+	<ui:define name="menu">
+		<ui:include src="/includes/menu.xhtml" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h3 class="titulo_cadservi">Dados dos serviços</h3>
+		<h:form id="form01">
+
+
+			<p:fieldset>
+				<div align="center" id="div03" >
+					<p:panelGrid id="panelgrid" styleClass="panelgridcad" columns="3">
+						<h:outputText styleClass="output_text" value="Nome:" />
+						<p:inputText id="txtNome"
+							value="#{controllerServico.servico.nome}" required="true"
+							requiredMessage="Tá faltando preencher o campo nome!" />
+						<p:message for="txtNome" />
+
+						<h:outputText styleClass="output_text" value="Duração:" />
+						<p:inputText id="txtDuracao"
+							value="#{controllerServico.servico.duracao}"></p:inputText>
+						<p:message for="txtDuracao" />
+
+						<h:outputText styleClass="output_text"
+							value="Valor:#{controllerServico.servico.setEmpresa(controllerEmpresa.empresa)}" />
+						<p:inputText id="txtValor"
+							value="#{controllerServico.servico.valor}"></p:inputText>
+						<p:message for="txtValor" />
+
+					</p:panelGrid>
+				</div>
+				<br />
+				<p:toolbar>
+				<p:toolbarGroup align="center">
+					<p:commandButton   styleClass="button_cad" value="Cadastrar" 
+						action="#{controllerServico.salvar()}">
+						<p:confirm header="Atenção" message="Deseja realmente salvar?" />
+					</p:commandButton>
+				</p:toolbarGroup>
+				</p:toolbar>
+				</p:fieldset>
+					
+					
+				
+		</h:form>
+
+		<p:confirmDialog id="dialConfirm" global="true"
+			widgetVar="widDialConfirma">
+			<h:form>
+				<p:commandButton value="sim" styleClass="ui-confirmdialog-yes"
+					type="button" icon="ui-icon-check" />
+				<p:commandButton value="não" styleClass="ui-confirmdialog-no"
+					type="button" icon="ui-icon-close" />
+			</h:form>
+		</p:confirmDialog>
+
+
+
+	</ui:define>
+
+
+
+</ui:composition>

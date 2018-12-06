@@ -24,7 +24,7 @@ public class Persistencia {
     public static Persistencia getInstance() {
         if(instance == null) {
             instance = new Persistencia();
-        }
+        } 
         return instance;
     }
     
