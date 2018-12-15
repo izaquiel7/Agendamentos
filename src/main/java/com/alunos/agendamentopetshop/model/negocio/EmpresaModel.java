@@ -8,7 +8,7 @@ package com.alunos.agendamentopetshop.model.negocio;
 
 import com.alunos.agendamentopetshop.model.interfaces.InterfaceEmpresa;
 import com.alunos.agendamentopetshop.model.entidades.Empresa;
-import com.alunos.agendamentopetshop.model.dao.EmpresaDao;
+import com.alunos.agendamentopetshop.model.dao.EmpresaDaoImpl;
 import com.alunos.agendamentopetshop.util.Criptografia;
 import com.alunos.agendamentopetshop.util.TratamentoException;
 import com.alunos.agendamentopetshop.util.ValidaCNPJ;
@@ -20,12 +20,12 @@ import java.util.List;
  */
 public class EmpresaModel implements InterfaceEmpresa<Empresa> {
 
-    private EmpresaDao repositorioEmpresa;
+    private EmpresaDaoImpl repositorioEmpresa;
 
     private Empresa empresa;
 
     public EmpresaModel() {
-        repositorioEmpresa = new EmpresaDao();
+        repositorioEmpresa = new EmpresaDaoImpl();
     }
 
     @Override
