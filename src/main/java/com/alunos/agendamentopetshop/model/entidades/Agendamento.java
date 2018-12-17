@@ -8,6 +8,7 @@ package com.alunos.agendamentopetshop.model.entidades;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Observable;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -15,13 +16,15 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
 @Entity
-public class Agendamento implements Serializable {
+@Table(name="agendamento")
+public class Agendamento extends Observable implements Serializable {
     
     @Id
     @GeneratedValue
@@ -52,6 +55,9 @@ public class Agendamento implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+        
+        this.setChanged();
+	this.notifyObservers(id);
     }
 
     public Servico getServico() {

@@ -8,18 +8,22 @@ package com.alunos.agendamentopetshop.model.entidades;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Observable;
+import java.util.Observer;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
 @Entity
-public class Empresa implements Serializable {
+@Table(name="empresa")
+public class Empresa implements Serializable, Observer {
 
     @Id
     @GeneratedValue
@@ -146,6 +150,11 @@ public class Empresa implements Serializable {
         return "Empresa{" + "id=" + id + ", cnpj=" + cnpj + ", senha=" + senha
                 + ", email=" + email + ", telefone=" + telefone + ", nome=" + nome
                 + ", endereco=" + endereco + '}';
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        System.out.print("Notificação do seriço: " + arg);
     }
 
 }

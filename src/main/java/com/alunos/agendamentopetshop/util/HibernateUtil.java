@@ -5,12 +5,9 @@
  */
 package com.alunos.agendamentopetshop.util;
 
-import org.hibernate.HibernateException;
-import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 
 /**
  * Hibernate Utility class with a convenient method to get Session Factory
@@ -20,29 +17,22 @@ import org.hibernate.cfg.Configuration;
  */
 public class HibernateUtil {
 
-   private static SessionFactory sessionFactory = fabricaDeSessao();
-    
-    private static SessionFactory fabricaDeSessao() {
-        if(sessionFactory == null) {
-            try {
-                // Create the SessionFactory from standard (hibernate.cfg.xml) 
-                // config file.
-                Configuration configuracao = new Configuration().configure();
-                    StandardServiceRegistryBuilder registradorServico = new StandardServiceRegistryBuilder()
-                        .applySettings(configuracao.getProperties());
-                    StandardServiceRegistry servico = registradorServico.build();
-                    return configuracao.buildSessionFactory(servico);
-            } catch(HibernateException e) {
-                System.err.println("Erro na construcao do objeto SessionFactory. Erro: " + e);
-                throw new ExceptionInInitializerError(e);
-            }
-        } else {
-            return sessionFactory;
+    private final EntityManagerFactory factory;
+    private static HibernateUtil hibernateUtil;
+
+    private HibernateUtil() {
+        factory = Persistence.createEntityManagerFactory("persistence");
+    }
+
+    public EntityManagerFactory getFactory() {
+        return factory;
+    }
+
+    public static HibernateUtil getInstance() {
+        if (hibernateUtil == null) {
+            hibernateUtil = new HibernateUtil();
         }
-        
+        return hibernateUtil;
     }
-    
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
+
 }

@@ -8,7 +8,7 @@ package com.alunos.agendamentopetshop.model.negocio;
 
 import com.alunos.agendamentopetshop.model.interfaces.InterfaceCliente;
 import com.alunos.agendamentopetshop.model.entidades.Cliente;
-import com.alunos.agendamentopetshop.model.dao.ClienteDao;
+import com.alunos.agendamentopetshop.model.dao.ClienteDaoImpl;
 import com.alunos.agendamentopetshop.util.Criptografia;
 import com.alunos.agendamentopetshop.util.TratamentoException;
 import com.alunos.agendamentopetshop.util.ValidaCPF;
@@ -20,11 +20,11 @@ import java.util.List;
  */
 public class ClienteModel implements InterfaceCliente<Cliente> {
 
-    private ClienteDao repositorioCliente;
+    private ClienteDaoImpl repositorioCliente;
     private Cliente cliente;
 
     public ClienteModel() {
-        repositorioCliente = new ClienteDao();
+        repositorioCliente = new ClienteDaoImpl();
     }
 
     @Override
@@ -32,7 +32,7 @@ public class ClienteModel implements InterfaceCliente<Cliente> {
         if (login == null || senha == null) {
             return null;
         }
-        return ((ClienteDao) repositorioCliente).autenticar(login, senha);
+        return ((ClienteDaoImpl) repositorioCliente).autenticar(login, senha);
     }
 
     @Override

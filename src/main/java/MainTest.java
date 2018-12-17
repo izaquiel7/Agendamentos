@@ -1,5 +1,5 @@
 
-import com.alunos.agendamentopetshop.model.dao.ClienteDao;
+import com.alunos.agendamentopetshop.model.dao.ClienteDaoImpl;
 import com.alunos.agendamentopetshop.model.entidades.Cliente;
 
 /*
@@ -16,9 +16,9 @@ public class MainTest {
     public static void main(String[] args){
         
         
-        ClienteDao dao = new ClienteDao();
+        ClienteDaoImpl dao = new ClienteDaoImpl();
         
-        Cliente cliente = new Cliente("zaza", "16641035471", "981155288", null, "zaza@gmail.com", "1234");
+        Cliente cliente = new Cliente("izack", "16541035471", "981155288", null, "izack@gmail.com", "4321");
         
         dao.salvar(cliente);
     }

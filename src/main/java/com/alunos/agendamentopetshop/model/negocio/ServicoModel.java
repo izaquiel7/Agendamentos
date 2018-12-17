@@ -8,7 +8,7 @@ package com.alunos.agendamentopetshop.model.negocio;
 
 import com.alunos.agendamentopetshop.model.interfaces.InterfaceServico;
 import com.alunos.agendamentopetshop.model.entidades.Servico;
-import com.alunos.agendamentopetshop.model.dao.ServicoDao;
+import com.alunos.agendamentopetshop.model.dao.ServicoDaoImpl;
 import com.alunos.agendamentopetshop.util.TratamentoException;
 import java.util.List;
 
@@ -18,11 +18,11 @@ import java.util.List;
  */
 public class ServicoModel implements InterfaceServico<Servico>{
     
-    private ServicoDao repositorioServico;
+    private ServicoDaoImpl repositorioServico;
     private Servico servico;
     
     public ServicoModel(){
-        repositorioServico = new ServicoDao();
+        repositorioServico = new ServicoDaoImpl();
     }
     
     @Override

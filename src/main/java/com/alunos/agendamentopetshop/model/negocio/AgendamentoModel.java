@@ -8,7 +8,7 @@ package com.alunos.agendamentopetshop.model.negocio;
 
 import com.alunos.agendamentopetshop.model.interfaces.InterfaceAgendamento;
 import com.alunos.agendamentopetshop.model.entidades.Agendamento;
-import com.alunos.agendamentopetshop.model.dao.AgendamentoDao;
+import com.alunos.agendamentopetshop.model.dao.AgendamentoDaoImpl;
 import com.alunos.agendamentopetshop.util.TratamentoException;
 import java.util.List;
 
@@ -18,11 +18,11 @@ import java.util.List;
  */
 public class AgendamentoModel implements InterfaceAgendamento<Agendamento> {
 
-    private AgendamentoDao repositorioAgendamento;
+    private AgendamentoDaoImpl repositorioAgendamento;
     private Agendamento agendamento;
 
     public AgendamentoModel() {
-        repositorioAgendamento = new AgendamentoDao();
+        repositorioAgendamento = new AgendamentoDaoImpl();
     }
 
     @Override
