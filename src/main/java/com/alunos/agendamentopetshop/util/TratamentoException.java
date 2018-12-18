@@ -11,7 +11,7 @@ package com.alunos.agendamentopetshop.util;
  */
 public class TratamentoException {
 
-    public static Exception e;
+    private static Exception e;
 
     private TratamentoException() {
     }

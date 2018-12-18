@@ -1,4 +1,5 @@
 
+
 import com.alunos.agendamentopetshop.model.dao.ClienteDaoImpl;
 import com.alunos.agendamentopetshop.model.entidades.Cliente;
 
@@ -12,13 +13,13 @@ import com.alunos.agendamentopetshop.model.entidades.Cliente;
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
-public class MainTest {
+public class geraTabelasHibernate {
     public static void main(String[] args){
         
         
         ClienteDaoImpl dao = new ClienteDaoImpl();
         
-        Cliente cliente = new Cliente("izack", "16541035471", "981155288", null, "izack@gmail.com", "4321");
+        Cliente cliente = new Cliente("zaza", "16641035471", "981155288", null, "zaza@gmail.com", "1234");
         
         dao.salvar(cliente);
     }

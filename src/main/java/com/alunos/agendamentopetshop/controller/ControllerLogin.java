@@ -23,13 +23,13 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean
 @SessionScoped
-public class AutenticarBean implements Serializable {
+public class ControllerLogin implements Serializable {
     private String email;
     private String senha;
     private Cliente clienteLogin;
     private Empresa empresaLogin;
 
-public AutenticarBean(){
+public ControllerLogin(){
     clienteLogin = new Cliente();
     empresaLogin = new Empresa();
 }

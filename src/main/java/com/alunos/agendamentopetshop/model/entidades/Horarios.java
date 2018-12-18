@@ -10,14 +10,12 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  *
  * @author izaquiel cavalcante da silva izaquiel_cavalcante@hotmail.com
  */
 @Entity
-@Table(name="horarios")
 public class Horarios implements Serializable {
     @Id
     @GeneratedValue

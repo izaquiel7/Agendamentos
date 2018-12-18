@@ -43,7 +43,7 @@ public class ClienteDaoImpl implements InterfaceCliente<Cliente> {
 
     @Override
     public List<Cliente> listar() {
-        return DaoImpl.getInstance().listar("SELECT c FROM Cliente c");
+        return (List<Cliente>) (Object) DaoImpl.getInstance().listar("SELECT c FROM Cliente c");
     }
     
     @Override

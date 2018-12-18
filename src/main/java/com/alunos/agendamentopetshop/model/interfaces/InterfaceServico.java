@@ -10,7 +10,7 @@ package com.alunos.agendamentopetshop.model.interfaces;
  * @author Izaquiel
  * @param <Servico>
  */
-public interface InterfaceServico<Servico> extends InterfaceDao<Servico> {
+public interface InterfaceServico<Servico> extends InterfaceGenerica<Servico> {
     
 }
 

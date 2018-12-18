@@ -6,9 +6,10 @@
 
 package com.alunos.agendamentopetshop.model.negocio;
 
+import com.alunos.agendamentopetshop.model.dao.ClienteDaoImpl;
 import com.alunos.agendamentopetshop.model.interfaces.InterfaceCliente;
 import com.alunos.agendamentopetshop.model.entidades.Cliente;
-import com.alunos.agendamentopetshop.model.dao.ClienteDaoImpl;
+
 import com.alunos.agendamentopetshop.util.Criptografia;
 import com.alunos.agendamentopetshop.util.TratamentoException;
 import com.alunos.agendamentopetshop.util.ValidaCPF;

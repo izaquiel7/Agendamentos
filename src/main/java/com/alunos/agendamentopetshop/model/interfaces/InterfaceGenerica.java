@@ -9,18 +9,18 @@ import java.util.List;
 
 /**
  *
- * @author 20161d13gr0112
+ * @author Izaquiel
  * @param <O>
  */
-public interface InterfaceDao<O> {
+public interface InterfaceGenerica<O> {
 
-    public void salvar(O o);
+    public void salvar(O o) throws Exception;
 
-    public void editar(O o);
+    public O buscar(Integer codigo);
 
-    public void deletar(O o);
+    public void editar(O o) throws Exception;
 
-    public List<O> listar(String sql);
+    public void deletar(O o) throws Exception;
 
-    public Object autenticar(String sql, String email, String senha);
+    public List<O> listar();
 }

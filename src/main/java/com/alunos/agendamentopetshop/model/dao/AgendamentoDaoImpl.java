@@ -42,6 +42,6 @@ public class AgendamentoDaoImpl implements InterfaceAgendamento<Agendamento>{
 
     @Override
     public List<Agendamento> listar() {
-        return DaoImpl.getInstance().listar("SELECT ag FROM Agendamento ag");
+        return (List<Agendamento>) (Object)DaoImpl.getInstance().listar("SELECT ag FROM Agendamento ag");
     }
 }

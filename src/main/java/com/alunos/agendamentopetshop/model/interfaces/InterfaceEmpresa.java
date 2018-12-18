@@ -10,7 +10,7 @@ package com.alunos.agendamentopetshop.model.interfaces;
  * @author Izaquiel
 * @param <Empresa>
  */
-public interface InterfaceEmpresa<Empresa> extends InterfaceDao<Empresa> {
+public interface InterfaceEmpresa<Empresa> extends InterfaceGenerica<Empresa> {
     
     public Empresa autenticar(String login, String senha);
     public Empresa buscarCnpj(String cnpj);

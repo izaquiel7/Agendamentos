@@ -10,6 +10,6 @@ package com.alunos.agendamentopetshop.model.interfaces;
  * @author Izaquiel
  * @param <Agendamento>
  */
-public interface InterfaceAgendamento<Agendamento> extends InterfaceDao<Agendamento> {
+public interface InterfaceAgendamento<Agendamento> extends InterfaceGenerica<Agendamento> {
     
 }

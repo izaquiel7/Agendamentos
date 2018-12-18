@@ -42,7 +42,7 @@ public class EmpresaDaoImpl implements InterfaceEmpresa<Empresa> {
 
     @Override
     public List<Empresa> listar() {
-        return DaoImpl.getInstance().listar("SELECT em FROM Empresa em");
+        return (List<Empresa>) (Object)DaoImpl.getInstance().listar("SELECT em FROM Empresa em");
     }
     
     @Override

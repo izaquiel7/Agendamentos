@@ -8,10 +8,11 @@ package com.alunos.agendamentopetshop.model.interfaces;
 /**
  *
  * @author Izaquiel
-* @param <Cliente>
+ * @param <Cliente>
  */
-public interface InterfaceCliente<Cliente> extends InterfaceDao<Cliente> {
-    
+public interface InterfaceCliente<Cliente> extends InterfaceGenerica<Cliente> {
+
     public Cliente autenticar(String login, String senha);
+
     public Cliente buscarCpf(String cpf);
 }

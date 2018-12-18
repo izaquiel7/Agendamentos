@@ -42,7 +42,7 @@ public class ServicoDaoImpl implements InterfaceServico<Servico> {
 
     @Override
     public List<Servico> listar() {
-        return DaoImpl.getInstance().listar("SELECT s FROM Servico s");
+        return (List<Servico>) (Object) DaoImpl.getInstance().listar("SELECT s FROM Servico s");
     }
 
 }
